@@ -93,6 +93,7 @@ export class NoticiasCrudPage {
             let file = event.target.files[0];
             reader.readAsDataURL(file);
             reader.onload = () => {
+                console.log(reader.result);
                 this.form.get('imagem').setValue(reader.result)
             };
         }

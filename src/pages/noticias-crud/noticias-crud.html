@@ -36,8 +36,13 @@
                 <ion-input type="text" formControlName="fonte"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label stacked>Imagem</ion-label>
+                <ion-label stacked>Imagem (Tamanho recomendado: 195x235)</ion-label>
                 <ion-input type="file" id="imagem" accept="image/*" (change)="onFileChange($event)" #fileInput></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-row align-items-center justify-content-center>
+                  <img src="{{ noticia.imagem }}" style="width: 195px; height: 235px;">
+                </ion-row>
               </ion-item>
             </ion-list>
           </ion-card>
@@ -51,9 +56,6 @@
           <button ion-button block color="danger" (click)="delete()" [disabled]="!isEdit">EXCLUIR</button>
         </ion-col>
       </ion-row>
-      <ion-card *ngIf="noticia" align-items-center justify-content-center>
-        <img src="{{ noticia.imagem }}" style="width: 195px; height: 235px;">
-      </ion-card>
     </ion-grid>
   </form>
 </ion-content>
