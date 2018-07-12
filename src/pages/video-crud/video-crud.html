@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastrar Vídeo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row align-items-center justify-content-center>
+        <ion-col col-12 col-sm-12 col-md-12>
+          <ion-card>
+            <ion-item-divider color="info" text-center>Informações do Vídeo</ion-item-divider>
+            <ion-list>
+              <ion-item>
+                <ion-label stacked>Título</ion-label>
+                <ion-input type="text" formControlName="titulo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Descrição</ion-label>
+                <ion-textarea type="text" formControlName="descricao"></ion-textarea>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>URL</ion-label>
+                <ion-input type="text" formControlName="url"></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 col-sm-6 col-md-6>
+          <button ion-button block (click)="save()" [disabled]="!form.valid">SALVAR INFORMAÇÕES</button>
+        </ion-col>
+        <ion-col col-6 col-sm-6 col-md-6>
+          <button ion-button block color="danger" (click)="delete()" [disabled]="!isEdit">EXCLUIR</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

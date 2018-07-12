@@ -1,0 +1,32 @@
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row align-items-center justify-content-center>
+        <ion-col col-12 col-sm-12 col-md-8>
+          <ion-card>
+            <ion-item-divider color="primary" text-center>Autentique-se</ion-item-divider>
+            <ion-list>
+              <ion-item>
+                <ion-label stacked>E-mail</ion-label>
+                <ion-input type="email" maxlength="140" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Senha</ion-label>
+                <ion-input type="password" maxlength="20" formControlName="password"></ion-input>
+              </ion-item>
+            </ion-list>
+            <br>
+            <button ion-button block (click)="login()" [disabled]="!form.valid">ENTRAR</button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar text-center>
+    <p ion-text color="dark">Marques Siqueira 2018 - Todos os direitos reservados</p>
+  </ion-toolbar>
+</ion-footer>
