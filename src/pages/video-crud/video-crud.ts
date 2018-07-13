@@ -45,11 +45,16 @@ export class VideoCrudPage {
   save() {
     let id = this.getId();
 
+    let url = this.form.controls['url'].value as string;
+    let splited = url.split("watch?v=");
+    let id_video = `http://www.youtube.com/embed/${splited[1]}?origin=http://example.com`;
+
     this.DB.collection<VideoModel>('videos').doc(id).set({
       id: id,
       titulo: this.form.controls['titulo'].value,
       descricao: this.form.controls['descricao'].value,
-      url: this.form.controls['url'].value
+      url: this.form.controls['url'].value,
+      id_video: id_video
     });
 
     this.navCtrl.pop();

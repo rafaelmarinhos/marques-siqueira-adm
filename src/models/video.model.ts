@@ -3,4 +3,5 @@ export interface VideoModel {
     titulo?: string;
     descricao?: string;
     url?: string;
+    id_video?: string;
 }
