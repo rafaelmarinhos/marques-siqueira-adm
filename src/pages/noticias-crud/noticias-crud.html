@@ -16,16 +16,28 @@
             <ion-item-divider color="info" text-center>Informações da Notícia</ion-item-divider>
             <ion-list>
               <ion-item>
-                <ion-label stacked>Título</ion-label>
-                <ion-input type="text" formControlName="titulo"></ion-input>
+                <ion-label>Notícia principal 1</ion-label>
+                <ion-checkbox formControlName="noticia_home_1"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Notícia principal 2</ion-label>
+                <ion-checkbox formControlName="noticia_home_2"></ion-checkbox>
               </ion-item>
               <ion-item>
                 <ion-label stacked>Data</ion-label>
                 <ion-input type="text" formControlName="data"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label stacked>Descrição Resumida</ion-label>
-                <ion-textarea type="text" formControlName="descricao_resumida"></ion-textarea>
+                <ion-label stacked>Título</ion-label>
+                <ion-input type="text" formControlName="titulo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Título Home (Máximo 25 caracteres)</ion-label>
+                <ion-input type="text" formControlName="titulo_home" maxlength="25"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Descrição Resumida (Máximo 150 caracteres)</ion-label>
+                <ion-textarea class="large" type="text" formControlName="descricao_resumida" maxlength="150"></ion-textarea>
               </ion-item>
               <ion-item>
                 <ion-label stacked>Descrição Completa</ion-label>
@@ -39,7 +51,7 @@
                 <ion-label stacked>Imagem (Tamanho recomendado: 195x235)</ion-label>
                 <ion-input type="file" id="imagem" accept="image/*" (change)="onFileChange($event)" #fileInput></ion-input>
               </ion-item>
-              <ion-item>
+              <ion-item *ngIf="noticia">
                 <ion-row align-items-center justify-content-center>
                   <img src="{{ noticia.imagem }}" style="width: 195px; height: 235px;">
                 </ion-row>

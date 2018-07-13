@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { NoticiaModel } from '../../models/noticia.model';
+import { ParametrosModel } from '../../models/parametros.model';
+import { Constantes } from '../../global/constantes';
 
 @Component({
     selector: 'page-noticias-crud',
@@ -31,21 +33,27 @@ export class NoticiasCrudPage {
             this.isEdit = false;
             this.form = this.formBuilder.group({
                 titulo: ['', Validators.required],
+                titulo_home: ['', Validators.required],
                 data: [''],
                 descricao_resumida: ['', Validators.required],
                 descricao_completa: ['', Validators.required],
                 fonte: [''],
-                imagem: ['']
+                imagem: [''],
+                noticia_home_1: [false],
+                noticia_home_2: [false]
             });
         } else {
             this.isEdit = true;
             this.form = this.formBuilder.group({
                 titulo: [this.noticia.titulo, Validators.required],
+                titulo_home: [this.noticia.titulo_home, Validators.required],
                 data: [this.noticia.data],
                 descricao_resumida: [this.noticia.descricao_resumida, Validators.required],
                 descricao_completa: [this.noticia.descricao_completa, Validators.required],
                 fonte: [this.noticia.fonte],
-                imagem: ['']
+                imagem: [''],
+                noticia_home_1: [this.noticia.noticia_home_1],
+                noticia_home_2: [this.noticia.noticia_home_2]
             });
         }
     }
@@ -65,12 +73,28 @@ export class NoticiasCrudPage {
         this.DB.collection<NoticiaModel>('noticias').doc(id).set({
             id: id,
             titulo: this.form.controls['titulo'].value,
+            titulo_home: this.form.controls['titulo_home'].value,
             data: this.form.controls['data'].value,
             descricao_resumida: this.form.controls['descricao_resumida'].value,
             descricao_completa: this.form.controls['descricao_completa'].value,
             fonte: this.form.controls['fonte'].value,
-            imagem: imagem
+            imagem: imagem,
+            noticia_home_1: this.form.controls['noticia_home_1'].value,
+            noticia_home_2: this.form.controls['noticia_home_2'].value
         });
+
+        if (this.form.controls['noticia_home_1'].value) {
+            this.DB.collection<ParametrosModel>('parametros').doc(Constantes.parametros_id).update({
+                noticia_home_1: id
+            });
+        }
+
+        if (this.form.controls['noticia_home_2'].value) {
+            this.DB.collection<ParametrosModel>('parametros').doc(Constantes.parametros_id).update({
+                noticia_home_2: id
+            });
+        }
+
         this.navCtrl.pop();
     }
 
