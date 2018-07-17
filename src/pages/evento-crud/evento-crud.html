@@ -35,6 +35,11 @@
                 <ion-label stacked>Imagem</ion-label>
                 <ion-input type="file" id="imagem" accept="image/*" (change)="onFileChange($event)" #fileInput></ion-input>
               </ion-item>
+              <ion-item *ngIf="evento">
+                <ion-row align-items-center justify-content-center>
+                  <img src="{{ evento.imagem }}" style="width: 195px; height: 235px;">
+                </ion-row>
+              </ion-item>
             </ion-list>
           </ion-card>
         </ion-col>
@@ -47,9 +52,6 @@
           <button ion-button block color="danger" (click)="delete()" [disabled]="!isEdit">EXCLUIR</button>
         </ion-col>
       </ion-row>
-      <ion-card *ngIf="evento">
-        <img src="{{ evento.imagem }}" />
-      </ion-card>
     </ion-grid>
   </form>
 </ion-content>

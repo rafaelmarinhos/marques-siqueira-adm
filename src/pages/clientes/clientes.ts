@@ -17,7 +17,7 @@ export class ClientesPage {
   constructor(public navCtrl: NavController, public DB: AngularFirestore) {
 
     // TODO: Ordenar por data de criação
-    this.clientesColecao = DB.collection<ClienteModel>('clientes');
+    this.clientesColecao = DB.collection<ClienteModel>('clientes', ref => ref.orderBy("nome"));
     this.clientes = this.clientesColecao.valueChanges();
   }
 
