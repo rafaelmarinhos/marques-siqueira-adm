@@ -33,6 +33,7 @@ export class FuncionarioCrudPage {
         nome: ['', Validators.required],
         OAB: [''],
         descricao: ['', Validators.required],
+        email: ['', Validators.required],
         imagem: ['']
       });
     } else {
@@ -41,6 +42,7 @@ export class FuncionarioCrudPage {
         nome: [funcionario.nome, Validators.required],
         OAB: [funcionario.OAB],
         descricao: [funcionario.descricao, Validators.required],
+        email: [funcionario.email, Validators.required],
         imagem: ['']
       });
     }
@@ -63,6 +65,7 @@ export class FuncionarioCrudPage {
       nome: this.form.controls['nome'].value,
       OAB: this.form.controls['OAB'].value,
       descricao: this.form.controls['descricao'].value,
+      email: this.form.controls['email'].value,
       imagem: imagem
     });
 
