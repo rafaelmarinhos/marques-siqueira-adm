@@ -32,8 +32,10 @@ export class FuncionarioCrudPage {
       this.form = this.formBuilder.group({
         nome: ['', Validators.required],
         OAB: [''],
-        descricao: ['', Validators.required],
-        email: ['', Validators.required],
+        descricao: [''],
+        email: [''],
+        posicao: ['', Validators.required],
+        area: [''],
         imagem: ['']
       });
     } else {
@@ -41,8 +43,10 @@ export class FuncionarioCrudPage {
       this.form = this.formBuilder.group({
         nome: [funcionario.nome, Validators.required],
         OAB: [funcionario.OAB],
-        descricao: [funcionario.descricao, Validators.required],
-        email: [funcionario.email, Validators.required],
+        descricao: [funcionario.descricao],
+        email: [funcionario.email],
+        posicao: [funcionario.posicao, Validators.required],
+        area: [funcionario.area],
         imagem: ['']
       });
     }
