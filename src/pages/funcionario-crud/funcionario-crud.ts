@@ -36,7 +36,8 @@ export class FuncionarioCrudPage {
         email: [''],
         posicao: ['', Validators.required],
         area: [''],
-        imagem: ['']
+        imagem: [''],
+        tipo: ['', Validators.required]
       });
     } else {
       this.isEdit = true;
@@ -47,7 +48,8 @@ export class FuncionarioCrudPage {
         email: [funcionario.email],
         posicao: [funcionario.posicao, Validators.required],
         area: [funcionario.area],
-        imagem: ['']
+        imagem: [''],
+        tipo: [funcionario.tipo, Validators.required]
       });
     }
   }
@@ -70,6 +72,9 @@ export class FuncionarioCrudPage {
       OAB: this.form.controls['OAB'].value,
       descricao: this.form.controls['descricao'].value,
       email: this.form.controls['email'].value,
+      posicao: this.form.controls['posicao'].value,
+      area: this.form.controls['area'].value,
+      tipo: this.form.controls['tipo'].value,
       imagem: imagem
     });
 

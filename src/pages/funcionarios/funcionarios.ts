@@ -17,7 +17,7 @@ export class FuncionariosPage {
   constructor(public navCtrl: NavController, public DB: AngularFirestore) {
 
     // TODO: Ordenar por data de criação
-    this.funcionariosColecao = DB.collection<FuncionarioModel>('funcionarios');
+    this.funcionariosColecao = DB.collection<FuncionarioModel>('funcionarios', ref => ref.orderBy("tipo"));
     this.funcionarios = this.funcionariosColecao.valueChanges();
   }
 

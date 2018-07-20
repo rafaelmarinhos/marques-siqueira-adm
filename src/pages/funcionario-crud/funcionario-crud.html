@@ -16,6 +16,14 @@
             <ion-item-divider color="info" text-center>Informações do Funcionário</ion-item-divider>
             <ion-list>
               <ion-item>
+                <ion-label stacked>Departamento</ion-label>
+                <ion-select formControlName="tipo">
+                  <ion-option value="advogado">Advogado</ion-option>
+                  <ion-option value="apoio">Apoio</ion-option>
+                  <ion-option value="consultor">Consultor</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
                 <ion-label stacked>Nome</ion-label>
                 <ion-input type="text" formControlName="nome"></ion-input>
               </ion-item>
@@ -33,7 +41,7 @@
               </ion-item>
               <ion-item>
                 <ion-label stacked>Área de Atuação Principal</ion-label>
-                <ion-textarea type="text" formControlName="area"></ion-textarea>
+                <ion-input type="text" formControlName="area"></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label stacked>Imagem</ion-label>
@@ -41,12 +49,12 @@
               </ion-item>
               <ion-item *ngIf="funcionario">
                 <ion-row align-items-center justify-content-center>
-                  <img src="{{ funcionario.imagem }}" style="width: 585px; height: 585px;"/>
+                  <img src="{{ funcionario.imagem }}" style="width: 585px; height: 585px;" />
                 </ion-row>
               </ion-item>
             </ion-list>
 
-            
+
           </ion-card>
         </ion-col>
       </ion-row>
