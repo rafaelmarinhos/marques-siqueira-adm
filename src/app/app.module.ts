@@ -27,6 +27,10 @@ import { EventosPage } from '../pages/eventos/eventos';
 import { EventoCrudPage } from '../pages/evento-crud/evento-crud';
 import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
 import { FuncionarioCrudPage } from '../pages/funcionario-crud/funcionario-crud';
+import { AreasAtuacaoPage } from '../pages/areas-atuacao/areas-atuacao';
+import { AreaAtuacaoCrudPage } from '../pages/area-atuacao-crud/area-atuacao-crud';
+import { PremiosPage } from '../pages/premios/premios';
+import { PremioCrudPage } from '../pages/premio-crud/premio-crud';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { FuncionarioCrudPage } from '../pages/funcionario-crud/funcionario-crud'
     EventosPage,
     EventoCrudPage,
     FuncionariosPage,
-    FuncionarioCrudPage
+    FuncionarioCrudPage,
+    AreasAtuacaoPage,
+    AreaAtuacaoCrudPage,
+    PremiosPage,
+    PremioCrudPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +75,11 @@ import { FuncionarioCrudPage } from '../pages/funcionario-crud/funcionario-crud'
     EventosPage,
     EventoCrudPage,
     FuncionariosPage,
-    FuncionarioCrudPage
+    FuncionarioCrudPage,
+    AreasAtuacaoPage,
+    AreaAtuacaoCrudPage,
+    PremiosPage,
+    PremioCrudPage
   ],
   providers: [
     StatusBar,

@@ -12,6 +12,9 @@ import { ClientesPage } from '../pages/clientes/clientes';
 import { VideosPage } from '../pages/videos/videos';
 import { EventosPage } from '../pages/eventos/eventos';
 import { FuncionariosPage } from '../pages/funcionarios/funcionarios';
+import { PremiosPage } from '../pages/premios/premios';
+import { AreasAtuacaoPage } from '../pages/areas-atuacao/areas-atuacao';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -38,7 +41,9 @@ export class MyApp {
       { icon: 'md-briefcase', title: 'Clientes', component: ClientesPage },
       { icon: 'logo-youtube', title: 'Vídeos', component: VideosPage },  
       { icon: 'md-star', title: 'Eventos', component: EventosPage },
-      { icon: 'md-people', title: 'Funcionários', component: FuncionariosPage }
+      { icon: 'md-people', title: 'Funcionários', component: FuncionariosPage },
+      { icon: 'md-apps', title: 'Áreas de Atuação', component: AreasAtuacaoPage },
+      { icon: 'md-medal', title: 'Prêmios', component: PremiosPage }
     ];
   }
 
