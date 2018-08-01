@@ -7,6 +7,51 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row align-items-center justify-content-center>
+        <ion-col col-12 col-sm-12 col-md-12>
+          <ion-card>
+            <ion-item-divider color="info" text-center>Informações da Área</ion-item-divider>
+            <ion-list>
+              <ion-item>
+                <ion-label stacked>Nome</ion-label>
+                <ion-input type="text" formControlName="nome"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Subtítulo</ion-label>
+                <ion-input type="text" formControlName="subtitulo"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Descrição</ion-label>
+                <ion-input type="text" formControlName="descricao"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked>Serviços</ion-label>
+                <ion-textarea type="text" formControlName="servicos"></ion-textarea>
+              </ion-item>              
+              <ion-item>
+                <ion-label stacked>Imagem</ion-label>
+                <ion-input type="file" id="imagem" accept="image/*" (change)="onFileChange($event)" #fileInput></ion-input>
+              </ion-item>
+              <ion-item *ngIf="area">
+                <ion-row align-items-center justify-content-center>
+                  <img src="{{ area.imagem }}" style="width: 195px; height: 235px;">
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 col-sm-6 col-md-6>
+          <button ion-button block (click)="save()" [disabled]="!form.valid">SALVAR INFORMAÇÕES</button>
+        </ion-col>
+        <ion-col col-6 col-sm-6 col-md-6>
+          <button ion-button block color="danger" (click)="delete()" [disabled]="!isEdit">EXCLUIR</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

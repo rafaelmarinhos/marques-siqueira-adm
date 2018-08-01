@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { AngularFirestoreCollection, AngularFirestore } from '../../../node_modules/angularfire2/firestore';
+import { AreaAtuacaoCrudPage } from '../area-atuacao-crud/area-atuacao-crud';
+import { AreaAtuacaoModel } from '../../models/area.model';
+import { Observable } from '../../../node_modules/rxjs/Observable';
 
 @Component({
   selector: 'page-areas-atuacao',
@@ -7,10 +11,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AreasAtuacaoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private areasColecao: AngularFirestoreCollection<AreaAtuacaoModel>;
+  areas: Observable<AreaAtuacaoModel[]>;
+
+  constructor(public navCtrl: NavController, public DB: AngularFirestore) {
+
+    // TODO: Ordenar por data de criação
+    this.areasColecao = DB.collection<AreaAtuacaoModel>('areas');
+    this.areas = this.areasColecao.valueChanges();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AreasAtuacaoPage');
+  create() {
+    this.navCtrl.push(AreaAtuacaoCrudPage);
+  }
+
+  edit(area: AreaAtuacaoModel) {
+    this.navCtrl.push(AreaAtuacaoCrudPage, { area: area })
   }
 }
