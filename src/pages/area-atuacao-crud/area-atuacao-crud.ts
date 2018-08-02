@@ -32,7 +32,7 @@ export class AreaAtuacaoCrudPage {
       this.form = this.formBuilder.group({
         nome: ['', Validators.required],
         subtitulo: [''],
-        descricao: ['', Validators.required],
+        descricao: [''],
         servicos: [''],
         imagem: ['']
       });
@@ -40,9 +40,9 @@ export class AreaAtuacaoCrudPage {
       this.isEdit = true;
       this.form = this.formBuilder.group({
         nome: [area.nome, Validators.required],
-        subtitulo: [area.subtitulo, Validators.required],
-        descricao: [area.descricao, Validators.required],
-        servicos: [area.servicos, Validators.required],
+        subtitulo: [area.subtitulo],
+        descricao: [area.descricao],
+        servicos: [area.servicos],
         imagem: ['']
       });
     }
